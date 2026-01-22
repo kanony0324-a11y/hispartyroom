@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信完了 - HIS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+            background: #10059F;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .logo-section {
+            background: white;
+            padding: 30px 30px 20px 30px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo-section img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .message-section {
+            padding: 60px 40px;
+        }
+
+        .checkmark {
+            font-size: 80px;
+            color: #10059F;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .message-section {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .checkmark {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="logo-section">
+            <img src="his-logo-cropped.png" alt="HIS Logo">
+        </div>
+        <div class="message-section">
+            <div class="checkmark">✓</div>
+            <h1>送信完了</h1>
+            <p>ご回答ありがとうございました。<br>今後ともHISのサービスをよろしくお願いいたします。</p>
+        </div>
+    </div>
+</body>
+</html>

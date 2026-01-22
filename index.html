@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
-            background: linear-gradient(135deg, #004B8D 0%, #0066CC 100%);
+            background: #10059F;
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
@@ -38,7 +38,7 @@
         }
 
         .password-box h2 {
-            color: #004B8D;
+            color: #10059F;
             margin-bottom: 20px;
             font-size: 24px;
         }
@@ -55,13 +55,13 @@
 
         .password-box input:focus {
             outline: none;
-            border-color: #004B8D;
+            border-color: #10059F;
         }
 
         .password-box button {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #004B8D 0%, #0066CC 100%);
+            background: #10059F;
             color: white;
             border: none;
             border-radius: 8px;
@@ -95,8 +95,20 @@
             overflow: hidden;
         }
 
+        .logo-section {
+            background: white;
+            padding: 20px 30px 15px 30px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo-section img {
+            max-width: 70px;
+            height: auto;
+        }
+
         .header {
-            background: linear-gradient(135deg, #004B8D 0%, #0066CC 100%);
+            background: #10059F;
             color: white;
             padding: 40px 30px;
             text-align: center;
@@ -207,7 +219,7 @@
 
         textarea:focus {
             outline: none;
-            border-color: #004B8D;
+            border-color: #10059F;
         }
 
         input[type="email"] {
@@ -221,13 +233,13 @@
 
         input[type="email"]:focus {
             outline: none;
-            border-color: #004B8D;
+            border-color: #10059F;
         }
 
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #004B8D 0%, #0066CC 100%);
+            background: #10059F;
             color: white;
             border: none;
             border-radius: 10px;
@@ -240,7 +252,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 75, 141, 0.4);
+            box-shadow: 0 10px 25px rgba(16, 5, 159, 0.4);
         }
 
         .submit-btn:active {
@@ -287,6 +299,9 @@
     <!-- アンケートフォーム本体 -->
     <div id="surveyContent">
     <div class="container">
+        <div class="logo-section">
+            <img src="his-logo-cropped.png" alt="HIS Logo">
+        </div>
         <div class="header">
             <h1>パーティールーム ご利用後レビュー</h1>
             <p>本フォームは、サービス向上のためのレビュー入力フォームです。<br>お寄せいただいたご意見は、今後の運営改善に活用させていただきます。</p>
@@ -296,7 +311,7 @@
             <form id="surveyForm">
                 <!-- Q1 -->
                 <div class="question">
-                    <label class="question-label">Q1. ご利用目的（複数選択可）</label>
+                    <label class="question-label">Q1. ご利用目的を教えてください。（複数選択可）</label>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="purpose1" name="purpose" value="推し活・生誕祭">
@@ -315,15 +330,18 @@
                             <label for="purpose4">イベント利用</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="purpose5" name="purpose" value="その他">
+                            <input type="checkbox" id="purpose5" name="purpose" value="その他" onclick="toggleOtherPurpose()">
                             <label for="purpose5">その他</label>
                         </div>
+                    </div>
+                    <div id="otherPurposeText" style="display: none; margin-top: 10px;">
+                        <textarea name="other_purpose" placeholder="その他の利用目的を入力してください"></textarea>
                     </div>
                 </div>
 
                 <!-- Q2 -->
                 <div class="question">
-                    <label class="question-label">Q2. 満足度</label>
+                    <label class="question-label">Q2. ルーム利用の満足度を教えてください。</label>
                     <div class="star-rating">
                         <input type="radio" id="star5" name="satisfaction" value="5">
                         <label for="star5">☆</label>
@@ -340,7 +358,7 @@
 
                 <!-- Q3 -->
                 <div class="question">
-                    <label class="question-label">Q3. 良かった点</label>
+                    <label class="question-label">Q3. 良かったと感じた点を教えてください。（複数選択可）</label>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="good1" name="good_points" value="内装デザイン">
@@ -375,13 +393,13 @@
 
                 <!-- Q4 -->
                 <div class="question">
-                    <label class="question-label">Q4. 改善点</label>
+                    <label class="question-label">Q4. 改善してほしい点があれば教えてください。</label>
                     <textarea name="improvements" placeholder="改善してほしい点があればご記入ください"></textarea>
                 </div>
 
                 <!-- Q5 -->
                 <div class="question">
-                    <label class="question-label">Q5. また利用したいですか</label>
+                    <label class="question-label">Q5. 今後また利用したいと思いますか。</label>
                     <div class="radio-group">
                         <div class="radio-item">
                             <input type="radio" id="revisit1" name="revisit" value="ぜひ利用したい">
@@ -404,7 +422,7 @@
 
                 <!-- Q6 -->
                 <div class="question">
-                    <label class="question-label">Q6. 料金について</label>
+                    <label class="question-label">Q6. 料金についてどう感じましたか。</label>
                     <div class="radio-group">
                         <div class="radio-item">
                             <input type="radio" id="price1" name="price" value="安い">
@@ -469,6 +487,13 @@
             }
         });
 
+        // 「その他」選択時のテキストエリア表示/非表示
+        function toggleOtherPurpose() {
+            const checkbox = document.getElementById('purpose5');
+            const textArea = document.getElementById('otherPurposeText');
+            textArea.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
         document.getElementById('surveyForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -496,11 +521,8 @@
             // コンソールに出力（実際の送信処理に置き換え可能）
             console.log('送信データ:', data);
 
-            // 送信完了メッセージ
-            alert('アンケートのご協力ありがとうございました！');
-
-            // フォームをリセット
-            this.reset();
+            // 完了ページに遷移
+            window.location.href = 'thank-you.html';
         });
     </script>
 </body>

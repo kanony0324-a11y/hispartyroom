@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,72 +20,6 @@
             line-height: 1.6;
         }
 
-        #passwordScreen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .password-box {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .password-box h2 {
-            color: #10059F;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .password-box input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s ease;
-        }
-
-        .password-box input:focus {
-            outline: none;
-            border-color: #10059F;
-        }
-
-        .password-box button {
-            width: 100%;
-            padding: 12px;
-            background: #10059F;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .password-box button:hover {
-            transform: translateY(-2px);
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 10px;
-            display: none;
-        }
-
-        #surveyContent {
-            display: none;
-        }
 
         .container {
             max-width: 700px;
@@ -285,19 +220,6 @@
     </style>
 </head>
 <body>
-    <!-- パスワード入力画面 -->
-    <div id="passwordScreen">
-        <div class="password-box">
-            <h2>🔒 アクセス認証</h2>
-            <p style="color: #666; margin-bottom: 20px;">パスワードを入力してください</p>
-            <input type="password" id="passwordInput" placeholder="パスワード" onkeypress="if(event.key==='Enter') checkPassword()">
-            <button onclick="checkPassword()">ログイン</button>
-            <p class="error-message" id="errorMessage">パスワードが正しくありません</p>
-        </div>
-    </div>
-
-    <!-- アンケートフォーム本体 -->
-    <div id="surveyContent">
     <div class="container">
         <div class="logo-section">
             <img src="his-logo-cropped.png" alt="HIS Logo">
@@ -459,34 +381,8 @@
             </form>
         </div>
     </div>
-    </div>
 
     <script>
-        // パスワード認証
-        const correctPassword = 'partyroom2025'; // ここでパスワードを設定できます
-
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (input === correctPassword) {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('surveyContent').style.display = 'block';
-                sessionStorage.setItem('authenticated', 'true');
-            } else {
-                errorMessage.style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
-
-        // ページ読み込み時に認証状態を確認
-        window.addEventListener('load', function() {
-            if (sessionStorage.getItem('authenticated') === 'true') {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('surveyContent').style.display = 'block';
-            }
-        });
-
         // 「その他」選択時のテキストエリア表示/非表示
         function toggleOtherPurpose() {
             const checkbox = document.getElementById('purpose5');
